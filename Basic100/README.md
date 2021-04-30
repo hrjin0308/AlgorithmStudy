@@ -1,4 +1,4 @@
-# [CodeUp 기초 100제](https://codeup.kr/problemset.php)
+# [CodeUp 기초 100제](https://codeup.kr/problemset.php?page=21)
 
 01. [[기초-출력] 출력하기01(설명)(py)](https://github.com/hrjin0308/PythonStudy/blob/master/Basic100/Basic01.ipynb)
 02. [[기초-출력] 출력하기02(설명)(py)](https://github.com/hrjin0308/PythonStudy/blob/master/Basic100/Basic02.ipynb)
