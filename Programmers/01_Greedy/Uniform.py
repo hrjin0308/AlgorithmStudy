@@ -10,18 +10,67 @@
 # 여벌 체육복을 가져온 학생이 체육복을 도난당했을 수 있습니다. 이때 이 학생은 체육복을 하나만 도난당했다고 가정하며, 남은 체육복이 하나이기에 다른 학생에게는 체육복을 빌려줄 수 없습니다.
 
 # 입출력 예
-# n	  lost	    reserve	    return
-# 5	  [2, 4]	  [1, 3, 5]	  5
-# 5	  [2, 4]	  [3]	        4
-# 3	  [3]	      [1]	        2
+# n      lost        reserve        return
+# 5      [2, 4]      [1, 3, 5]      5
+# 5      [2, 4]      [3]            4
+# 3      [3]          [1]            2
+
+import time
+
+def isValid(reserveList, student):
+    # 도난당한 학생의 양 옆 번호가 여벌 체육복을 가져온 학생
+    if student + 1 in reserveList:
+      reserveList.remove(student + 1)
+      return True
+
+    if student - 1 in reserveList:
+      reserveList.remove(student - 1)
+      return True
+
+    return False
+
 
 def solution(n, lost, reserve):
     students = [(i + 1) for i in range(n)]
-    return list(
-      filter(
-        lambda stuNum:
-          # 도난당한 학생이 여벌 체육복을 가져온 학생
-          if lost.find(stuNum) != -1:
-            
+    
+    # 도난당한 학생이 여벌 체육복을 가져온 학생 먼저 빼기
+    tmpList = set(lost) & set(reserve)
+    for student in tmpList:
+      lost.remove(student)
+      reserve.remove(student)
+
+    return len(
+        list(
+          filter(
+            lambda x: True if x not in lost else isValid(reserve, x)
+            , students
+          )
+        )
       )
-    )
+
+
+def solution2(n, lost, reserve):
+    _reserve = [r for r in reserve if r not in lost]
+    _lost = [l for l in lost if l not in reserve]
+    for r in _reserve:
+        f = r - 1
+        b = r + 1
+        if f in _lost:
+            _lost.remove(f)
+        elif b in _lost:
+            _lost.remove(b)
+    return n - len(_lost)
+
+# print(solution(5, [2, 4], [1, 3, 5]))
+# print(solution(5, [2, 4], [3]))
+# print(solution(3, [3], [1]))
+# print(solution(4, [3, 1], [2, 4])) # 4
+
+start = time.time()  # 시작 시간 저장
+solution(5, [1, 2, 3], [2, 3, 4])
+print("time :", time.time() - start)  # 1.8358230590820312e-05
+
+start = time.time()  # 시작 시간 저장
+solution2(5, [1, 2, 3], [2, 3, 4])
+print("time :", time.time() - start)  # 6.9141387939453125e-06
+
