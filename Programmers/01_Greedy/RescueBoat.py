@@ -22,17 +22,17 @@ def solution(people, limit):
     p = sorted(people)
 
     while len(p) > 0:
-      p1 = p.pop(0)
-      print(f"p1 :: {p1}")
-      enableList = list(filter(lambda x: x + p1 <= limit, p))
-      enableList.sort(reverse = True)
-      print(f"enableList :: {enableList}")
+        answer += 1
+        p1 = p.pop(0)
+        print(f"p1 :: {p1}")
+        enableList = list(filter(lambda x: x + p1 <= limit, p))
 
-      if enableList is not None and len(enableList) > 0:
-        print(f"pop :: {enableList[0]}")
-        p.pop(p.index(enableList[0]))
-      
-      answer += 1
+        if len(enableList) == 0:
+            continue
+
+        enableList.sort()
+        print(f"pop :: {enableList[-1]}")
+        p.pop(p.index(enableList[-1]))
 
     return answer
 
