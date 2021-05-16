@@ -43,23 +43,106 @@
 #     return answer
 
 
+# 테스트 1 〉	통과 (809.37ms, 10.2MB)
+# 테스트 2 〉	통과 (662.23ms, 10.3MB)
+# 테스트 3 〉	통과 (390.64ms, 10.3MB)
+# 테스트 4 〉	통과 (237.86ms, 10.2MB)
+# 테스트 5 〉	통과 (108.17ms, 10.2MB)
+# 테스트 6 〉	통과 (57.42ms, 10.3MB)
+# 테스트 7 〉	통과 (136.43ms, 10.2MB)
+# 테스트 8 〉	통과 (2.15ms, 10.1MB)
+# 테스트 9 〉	통과 (4.10ms, 10.2MB)
+# 테스트 10 〉	통과 (402.75ms, 10.2MB)
+# 테스트 11 〉	통과 (203.11ms, 10.3MB)
+# 테스트 12 〉	통과 (211.86ms, 10.3MB)
+# 테스트 13 〉	통과 (498.88ms, 10.2MB)
+# 테스트 14 〉	통과 (919.48ms, 10.2MB)
+# 테스트 15 〉	통과 (7.84ms, 10.2MB)
+
+# 여기까지 줄였는데도 안되네...
+# 테스트 1 〉	통과 (538.81ms, 10.4MB)
+# 테스트 2 〉	통과 (407.12ms, 10.2MB)
+# 테스트 3 〉	통과 (273.97ms, 10.2MB)
+# 테스트 4 〉	통과 (211.14ms, 10.3MB)
+# 테스트 5 〉	통과 (85.03ms, 10.3MB)
+# 테스트 6 〉	통과 (30.97ms, 10.1MB)
+# 테스트 7 〉	통과 (72.41ms, 10.2MB)
+# 테스트 8 〉	통과 (3.30ms, 10.4MB)
+# 테스트 9 〉	통과 (3.05ms, 10.2MB)
+# 테스트 10 〉	통과 (214.58ms, 10.3MB)
+# 테스트 11 〉	통과 (184.43ms, 10.3MB)
+# 테스트 12 〉	통과 (145.88ms, 10.3MB)
+# 테스트 13 〉	통과 (262.68ms, 10.3MB)
+# 테스트 14 〉	통과 (554.72ms, 10.2MB)
+# 테스트 15 〉	통과 (5.91ms, 10.3MB)
+
+from collections import deque
+
 def solution(people, limit):
     answer = 0
-    p = sorted(people, reverse = True)
+    l = len(people)
+    p = deque(sorted(people))
 
-    print(f"p :: {p}")
-
-    while len(p) > 0:
+    while l > 0:
         answer += 1
-        p1 = p.pop()
-        enableList = list(filter(lambda x: x + p1 <= limit, p))
+        print(f"p :: {p}")
+        p1 = p.popleft()
+        print(f"p1 :: {p1}")
+        l -= 1
 
-        if len(enableList) == 0:
-            continue
+        enable = list(filter(lambda x: x + p1 <= limit, p))
+        print(f"## enable :: {enable}")
 
-        enableList.sort()
-        p.pop(p.index(enableList[-1]))
+        if len(enable) > 0:
+            idx = p.index(enable[-1])
+            p.rotate(-idx)
+            print(f"#### p :: {p}")
+            p.popleft()
+            l -= 1
+            p.rotate(idx)
+            print(f"#### p :: {p}")
+        print()
 
     return answer
 
+print(solution([70, 50, 80, 50], 100))
 print(solution([70, 50, 40, 80, 60], 100))
+
+# def solution(people, limit):
+#     answer = 0
+#     people.sort()
+#
+#     a = 0
+#     b = len(people) - 1
+#
+#     while a < b:
+#         if people[a] + people[b] <= limit:
+#             a += 1
+#             answer += 1
+#         b -= 1
+#
+#     return len(people) - answer
+
+# 위의 풀이로 했을 때 테스트 결과...
+# 정확성  테스트
+# 테스트 1 〉	통과 (1.01ms, 10.3MB)
+# 테스트 2 〉	통과 (0.95ms, 10.3MB)
+# 테스트 3 〉	통과 (0.94ms, 10.2MB)
+# 테스트 4 〉	통과 (0.85ms, 10.2MB)
+# 테스트 5 〉	통과 (0.45ms, 10.2MB)
+# 테스트 6 〉	통과 (0.26ms, 10.1MB)
+# 테스트 7 〉	통과 (0.40ms, 10.1MB)
+# 테스트 8 〉	통과 (0.04ms, 10.2MB)
+# 테스트 9 〉	통과 (0.07ms, 10.2MB)
+# 테스트 10 〉	통과 (0.81ms, 10.4MB)
+# 테스트 11 〉	통과 (0.71ms, 10.2MB)
+# 테스트 12 〉	통과 (0.67ms, 10.2MB)
+# 테스트 13 〉	통과 (0.83ms, 10.2MB)
+# 테스트 14 〉	통과 (0.98ms, 10.1MB)
+# 테스트 15 〉	통과 (0.09ms, 10.2MB)
+# 효율성  테스트
+# 테스트 1 〉	통과 (7.94ms, 10.6MB)
+# 테스트 2 〉	통과 (20.63ms, 10.7MB)
+# 테스트 3 〉	통과 (8.13ms, 10.6MB)
+# 테스트 4 〉	통과 (7.96ms, 10.7MB)
+# 테스트 5 〉	통과 (7.86ms, 10.5MB)
