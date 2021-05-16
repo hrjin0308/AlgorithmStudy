@@ -17,21 +17,47 @@
 # [70, 50, 80, 50]    100    3
 # [70, 80, 50]    100    3
 
+# from collections import deque
+#
+# def solution(people, limit):
+#     answer = 0
+#     l = len(people)
+#     p = deque(people)
+#
+#     while l > 0:
+#         answer += 1
+#         print(f"p :: {p}")
+#         p1 = p.popleft()
+#         print(f"p1 :: {p1}")
+#         l -= 1
+#
+#         for _ in range(l):
+#             if p1 + p[l - 1] <= limit:
+#                 p.pop()
+#                 l -= 1
+#                 break
+#             else:
+#                 p.rotate(-1)
+#                 print(f"p :: {p}")
+#
+#     return answer
+
+
 def solution(people, limit):
     answer = 0
-    p = sorted(people)
+    p = sorted(people, reverse = True)
+
+    print(f"p :: {p}")
 
     while len(p) > 0:
         answer += 1
-        p1 = p.pop(0)
-        print(f"p1 :: {p1}")
+        p1 = p.pop()
         enableList = list(filter(lambda x: x + p1 <= limit, p))
 
         if len(enableList) == 0:
             continue
 
         enableList.sort()
-        print(f"pop :: {enableList[-1]}")
         p.pop(p.index(enableList[-1]))
 
     return answer
