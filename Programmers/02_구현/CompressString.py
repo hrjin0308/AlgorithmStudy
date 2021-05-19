@@ -50,16 +50,38 @@
 # 이 경우 어떻게 문자열을 잘라도 압축되지 않으므로 가장 짧은 길이는 17이 됩니다.
 
 # 조건 1. 모든 문자열이 잘렸을 때 제일 짧게 자를수 있는 건 2개로 잘랐을 때, 제일 길게 자르는건 반토막 잘랐을 때 (무조건 자른다는 전재 하에?)
+# 조건 2. 문자열의 반보다 더 자르려고 하는건 의미가 없다
+
+# "aabbaccc" -> "abac" -> "2a2ba3c
+# "ababcdcdababcdcd" -> "ababcdcd" -> "2ababcdcd"
 
 def solution(s):
-    answer = 0
-    p = 0
+    minLength = len(s)
 
-    for i in range(2, len(s) // 2 + 1):
-        # i만큼 길이의 문자열 확인...은 모르겟다 집가서 생각하자
+    # 문자열의 반보다 더 자르려고 하는건 의미가 없기 때문에 반만큼만 비교하기
+    for i in range(0, len(s) // 2 + 1):         # i는 문자열을 자를 갯수 단위
+        strList = []             # 총 문자열에 쓰여질 문자열들 list.
+        tmpCount = 0           # 서로 다른 문자열을 총 몇 번 압축했냐
+        p = 0
+        while p < len(s) :
+            #p ~ p + i 까지의 문자열로 바로 뒤 문자열과 비교해서 있으면 tmpCount + 1 해주고 set에 넣기
+            nextStartIdx = p + i + 1
+            str = s[p:nextStartIdx]
+            nextStr = s[nextStartIdx: nextStartIdx + i + 1]
+            print(f"str:: {str}")
+            if str == nextStr:
+                if str not in strList:
+                    strList.append(str)
+                    tmpCount += 1
+            else:
 
-        str = 
-        # 시작 인덱스를 +1 해줌
-        # 시작 인덱스가 반보다 커질 경우 빠져나오기
+                strList.append(nextStr)
 
-    return answer
+
+            p = nextStartIdx
+        print(tmpSet)
+
+
+    return minLength
+
+solution("aabbaccc")
