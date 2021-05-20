@@ -64,7 +64,6 @@ def solution(s):
         tmpCount = 0           # 서로 다른 문자열을 총 몇 번 압축했냐
         p = 0
         while p < len(s) :
-            #p ~ p + i 까지의 문자열로 바로 뒤 문자열과 비교해서 있으면 tmpCount + 1 해주고 set에 넣기
             nextStartIdx = p + i + 1
             str = s[p:nextStartIdx]
             nextStr = s[nextStartIdx: nextStartIdx + i + 1]
@@ -74,7 +73,6 @@ def solution(s):
                     strList.append(str)
                     tmpCount += 1
             else:
-
                 strList.append(nextStr)
 
 
