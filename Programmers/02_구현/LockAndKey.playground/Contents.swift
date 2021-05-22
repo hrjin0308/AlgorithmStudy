@@ -40,30 +40,53 @@ enum Direction {
     }
 }
 
-typealias KeyInfo = (x: Int, y: Int)
+typealias PosInfo = (x: Int, y: Int)
 
 func solution(_ key:[[Int]], _ lock:[[Int]]) -> Bool {
     
     var canOpen = false
-    var keyPlus: [KeyInfo] = []
+    var keyPlus: [PosInfo] = []
+    var lockMinus: [PosInfo] = []
+    var keyRotateCount = 0
     
     // key init
-    for (i, keyRows) in key.enumerated() {
-        for (j, keyValue) in keyRows.enumerated() {
-            if keyValue == 1 {
+    for (i, rows) in key.enumerated() {
+        for (j, value) in rows.enumerated() {
+            if value == 1 {
                 keyPlus.append((x: i, y: j))
             }
         }
     }
-
     
-    print(keyPlus)
+    // lock init
+    for (i, rows) in lock.enumerated() {
+        for (j, value) in rows.enumerated() {
+            if value == 0 {
+                lockMinus.append((x: i, y: j))
+            }
+        }
+    }
     
     // 시계방향 회전
-    
+    while keyRotateCount < 4 {
+        
+        // 돌기 체크
+        checkValid(keyPlus, lock)
+        
+        // 원본 체크
+        if lockMinus.filter({ lockPos in
+            return !keyPlus.contains(lockPos)
+        }).count == 0 {
+            
+//            lockMinus.filter({ !keyPlus.contains($0) }).count == 0 {
+//            bre
+        }
+        
         // 오른쪽 이동
             // 위 이동
             // 아래 이동
+    }
+        
         // 왼쪽 이동
             // 위 이동
             // 아래 이동
@@ -73,7 +96,7 @@ func solution(_ key:[[Int]], _ lock:[[Int]]) -> Bool {
 }
 
 // key의 돌기부분과 lock의 돌기 부분이 맞닿는지 확인
-func checkValid(_ keyPlus: [KeyInfo], _ lock: [[Int]]) -> Bool {
+func checkValid(_ keyPlus: [PosInfo], _ lock: [[Int]]) -> Bool {
     return keyPlus.filter ({
         let size = lock.count
         guard 0 ..< size ~= $0.x, 0 ..< size ~= $0.y else {
@@ -84,53 +107,14 @@ func checkValid(_ keyPlus: [KeyInfo], _ lock: [[Int]]) -> Bool {
     }).count == 0
 }
 
-func checkLock(_ keyPlus: [(x: Int, y: Int)], _ lock: [[Int]]) {
+func checkLock(_ keyPlus: [PosInfo], _ lock: [[Int]]) {
     
 }
 
-func rotateKey(_ keyPlus: [KeyInfo], _ degree: Int) -> [KeyInfo] {
-    switch degree {
-    case 90:
-        key
-    default:
-        return keyPlus
+func rotateKey(_ keyPlus: [PosInfo], _ keySize: Int) -> [KeyInfo] {
+    return keyPlus.map { (x, y) in
+        return (x: y, y: (keySize - 1) - x)
     }
-    
 }
 
-solution([[0, 0, 0], [1, 0, 0], [0, 1, 1]], [[1, 1, 1], [1, 1, 0], [1, 0, 1]])
-[0, 0, 0, 0],
-[0, 0, 0, 0],
-[1, 0, 0, 0],
-[0, 1, 1, 0]
-
-2, 0
-3, 1
-3, 2
-
-[0, 1, 0, 0],
-[1, 0, 0, 0],
-[1, 0, 0, 0],
-[0, 0, 0, 0]
-
-0, 1
-1, 0
-2, 0
-
-[0, 1, 1, 0],
-[0, 0, 0, 1],
-[0, 0, 0, 0],
-[0, 0, 0, 0]
-
-1, 3
-0, 1
-0, 2
-
-[0, 0, 0, 0],
-[0, 0, 0, 1],
-[0, 0, 0, 1],
-[0, 0, 1, 0]
-
-3, 2
-1, 3
-2, 3
+solution([[0, 0, 0, 0], [0, 0, 0, 0], [1, 0, 0, 0], [0, 1, 1, 0]], [[1, 1, 1], [1, 1, 0], [1, 0, 1]])
