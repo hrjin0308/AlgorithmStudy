@@ -24,7 +24,7 @@
 
 import Foundation
 
-enum Direction {
+enum Translate {
     case vertical(pos: PosInfo, move: Int)
     case horizonal(pos: PosInfo, move: Int)
     
@@ -50,7 +50,7 @@ func solution(_ key:[[Int]], _ lock:[[Int]]) -> Bool {
     var lockMinus: [PosInfo] = []
     var keyRotateCount = 0
     
-    // key init
+    // keyPlus init
     for (i, rows) in key.enumerated() {
         for (j, value) in rows.enumerated() {
             if value == 1 {
@@ -59,7 +59,7 @@ func solution(_ key:[[Int]], _ lock:[[Int]]) -> Bool {
         }
     }
     
-    // lock init
+    // lockMinus init
     for (i, rows) in lock.enumerated() {
         for (j, value) in rows.enumerated() {
             if value == 0 {
@@ -75,7 +75,7 @@ func solution(_ key:[[Int]], _ lock:[[Int]]) -> Bool {
         checkValid(keyPlus, lock)
         
         // 원본 체크
-        if lockMinus.filter({ !keyPlus.contains($0) }).count == 0 {
+        if checkLockOpen(keyPlus, lockMinus) {
             canOpen = true
             break
         }
@@ -83,12 +83,20 @@ func solution(_ key:[[Int]], _ lock:[[Int]]) -> Bool {
         // 위쪽 맨 끝 ~ 아래쪽 맨 끝 이동
         for i in -(key.count - 1) ... (lock.count + key.count - 1) {
             // 왼쪽 맨 끝 ~ 오른쪽 맨 끝 이동
-            var tmpKeyPlus = keyPlus.map{ Direction.vertical(pos: $0, move: i).resultPos }
+            var tmpKeyPlus = keyPlus.map{ Translate.vertical(pos: $0, move: i).resultPos }
             for j in -(key.count - 1) ... (lock.count + key.count - 1) {
-                tmpKeyPlus = keyPlus.map{ Direction.horizonal(pos: $0, move: i).resultPos }
-                checkLock(tmpKeyPlus, <#T##lock: [[Int]]##[[Int]]#>)
+                tmpKeyPlus = keyPlus.map{ Translate.horizonal(pos: $0, move: j).resultPos }
+                
+                // 비교
+                if checkLockOpen(tmpKeyPlus, lockMinus) {
+                    canOpen = true
+                    break
+                }
             }
         }
+        
+        keyPlus = rotateKey(keyPlus, key.count)
+        keyRotateCount += 1
     }
     
     return canOpen
@@ -106,8 +114,8 @@ func checkValid(_ keyPlus: [PosInfo], _ lock: [[Int]]) -> Bool {
     }).count == 0
 }
 
-func checkLock(_ keyPlus: [PosInfo], _ lock: [[Int]]) {
-    
+func checkLockOpen(_ keyPlus: [PosInfo], _ lockMinus: [PosInfo]) -> Bool {
+    return lockMinus.filter({ !keyPlus.contains($0) }).count == 0
 }
 
 func rotateKey(_ keyPlus: [PosInfo], _ keySize: Int) -> [PosInfo] {
@@ -116,4 +124,4 @@ func rotateKey(_ keyPlus: [PosInfo], _ keySize: Int) -> [PosInfo] {
     }
 }
 
-solution([[0, 0, 0, 0], [0, 0, 0, 0], [1, 0, 0, 0], [0, 1, 1, 0]], [[1, 1, 1], [1, 1, 0], [1, 0, 1]])
+solution([[0, 0, 0], [1, 0, 0], [0, 1, 1]], [[1, 1, 1], [1, 1, 0], [1, 0, 1]])
