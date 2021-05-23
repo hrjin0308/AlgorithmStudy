@@ -59,10 +59,10 @@ bN = int(input())   # boardSize
 
 # board init
 board = []
-for i in range(bN + 1):
+for i in range(bN + 2):
     board.append([])
-    for j in range(bN + 1):
-        board[i].append(0 if (i in range(1, bN) and j in range(1, bN)) else 1)
+    for j in range(bN + 2):
+        board[i].append(0 if (i in range(1, bN + 1) and j in range(1, bN + 1)) else 1)
 
 aN = int(input())   # appleCount
 
