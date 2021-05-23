@@ -25,22 +25,23 @@
 import Foundation
 
 enum Direction {
-    case up(x: Int, y: Int)
-    case down(x: Int, y: Int)
-    case right(x: Int, y: Int)
-    case left(x: Int, y: Int)
+    case vertical(pos: PosInfo, move: Int)
+    case horizonal(pos: PosInfo, move: Int)
     
-    var resultPos: (x: Int, y: Int) {
+    var resultPos: PosInfo {
         switch self {
-        case .up(x: let x, y: let y):       return (x: x - 1, y: y)
-        case .down(x: let x, y: let y):     return (x: x + 1, y: y)
-        case .left(x: let x, y: let y):     return (x: x, y: y - 1)
-        case .right(x: let x, y: let y):    return (x: x, y: y + 1)
+        case .vertical(let pos, let move):       return PosInfo(x: pos.x, y: pos.y + move)
+        case .horizonal(let pos, let move):     return PosInfo(x: pos.x + move, y: pos.y)
         }
     }
 }
 
-typealias PosInfo = (x: Int, y: Int)
+// tuple이 contains가 안먹히네...
+//typealias PosInfo = (x: Int, y: Int)
+struct PosInfo: Hashable {
+    var x: Int
+    var y: Int
+}
 
 func solution(_ key:[[Int]], _ lock:[[Int]]) -> Bool {
     
@@ -53,7 +54,7 @@ func solution(_ key:[[Int]], _ lock:[[Int]]) -> Bool {
     for (i, rows) in key.enumerated() {
         for (j, value) in rows.enumerated() {
             if value == 1 {
-                keyPlus.append((x: i, y: j))
+                keyPlus.append(PosInfo(x: j, y: i))
             }
         }
     }
@@ -62,7 +63,7 @@ func solution(_ key:[[Int]], _ lock:[[Int]]) -> Bool {
     for (i, rows) in lock.enumerated() {
         for (j, value) in rows.enumerated() {
             if value == 0 {
-                lockMinus.append((x: i, y: j))
+                lockMinus.append(PosInfo(x: j, y: i))
             }
         }
     }
@@ -74,25 +75,23 @@ func solution(_ key:[[Int]], _ lock:[[Int]]) -> Bool {
         checkValid(keyPlus, lock)
         
         // 원본 체크
-        if lockMinus.filter({ lockPos in
-            return !keyPlus.contains(lockPos)
-        }).count == 0 {
-            
-//            lockMinus.filter({ !keyPlus.contains($0) }).count == 0 {
-//            bre
+        if lockMinus.filter({ !keyPlus.contains($0) }).count == 0 {
+            canOpen = true
+            break
         }
         
-        // 오른쪽 이동
-            // 위 이동
-            // 아래 이동
+        // 위쪽 맨 끝 ~ 아래쪽 맨 끝 이동
+        for i in -(key.count - 1) ... (lock.count + key.count - 1) {
+            // 왼쪽 맨 끝 ~ 오른쪽 맨 끝 이동
+            var tmpKeyPlus = keyPlus.map{ Direction.vertical(pos: $0, move: i).resultPos }
+            for j in -(key.count - 1) ... (lock.count + key.count - 1) {
+                tmpKeyPlus = keyPlus.map{ Direction.horizonal(pos: $0, move: i).resultPos }
+                checkLock(tmpKeyPlus, <#T##lock: [[Int]]##[[Int]]#>)
+            }
+        }
     }
-        
-        // 왼쪽 이동
-            // 위 이동
-            // 아래 이동
     
-    
-    return true
+    return canOpen
 }
 
 // key의 돌기부분과 lock의 돌기 부분이 맞닿는지 확인
@@ -111,9 +110,9 @@ func checkLock(_ keyPlus: [PosInfo], _ lock: [[Int]]) {
     
 }
 
-func rotateKey(_ keyPlus: [PosInfo], _ keySize: Int) -> [KeyInfo] {
-    return keyPlus.map { (x, y) in
-        return (x: y, y: (keySize - 1) - x)
+func rotateKey(_ keyPlus: [PosInfo], _ keySize: Int) -> [PosInfo] {
+    return keyPlus.map { pos in
+        return PosInfo(x: pos.y, y: (keySize - 1) - pos.x)
     }
 }
 
