@@ -50,15 +50,10 @@ def solution(progresses, speeds):
         progress = dProgresses.popleft()
         speed = dSpeeds.popleft()
 
-        print(f"progress:: {progress}, speed:: {speed}")
-
         if progress < 100:
             remain = math.ceil((100 - progress) / speed)
-            print(f"remain:: {remain}")
-            print(f"dProgresses:: {dProgresses}")
             for i, value in enumerate(dProgresses):
-                dProgresses[i] = (remain * speed) + value
-            print(f"dProgresses:: {dProgresses}")
+                dProgresses[i] = (remain * dSpeeds[i]) + value
             answer.append(0)
 
         answer[-1] += 1
