@@ -25,27 +25,29 @@
 def solution(n, computers):
     answer = 0
 
-    def dfs(x, y):
-        # if x < 0 or x >= n or y < 0 or y >= n:
-        #     return False
-        if computers[x][y] == 1:
-            computers[x][y] = 0
-            dfs(x + 1, y)
-            dfs(x, y + 1)
-            dfs(x - 1, y)
-            dfs(x, y - 1)
-            return True
-        return False
+    def dfs(com):
+        # 연결된 컴퓨터 정보
+        linked = computers[com]
+        # 자기자신 방문노드로 바꿔주기
+        linked[com] = 0
+        # dfs에서 for문 써도 되는건가..
+        for i, isLinked in enumerate(linked):
+            # 입력받은 com과 연결된 컴퓨터가 있으면 그 컴퓨터로 다시 dfs
+            if isLinked:
+                # dfs 호출 전 중복을 방지하기 위해 com의 연결 정보와 해당 컴퓨터 정보 모두 방문노드로 업데이트
+                computers[i][com] = 0
+                computers[com][i] = 0
+                dfs(i)
 
     for i in range(n):
         for j in range(n):
-            if dfs(i, j) == True:
+            if computers[i][j] == 1:
+                dfs(i)
                 answer += 1
 
     return answer
 
+
 print(solution(3, [[1, 1, 0], [1, 1, 0], [0, 0, 1]]))
 print(solution(3, [[1, 1, 0], [1, 1, 1], [0, 1, 1]]))
 
-# 요거 좀만 더 풀어보면 될듯
-print(solution(3, [[1, 0, 1], [0, 1, 0], [1, 0, 1]]))
