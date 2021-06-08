@@ -51,24 +51,15 @@
 
 def solution(N, stages):
     stages.sort()
-    print(stages)
-    result = []
-    current = 1     # stage 최소값 1
-    users = 0       # current stage에서 실패중인 유저 수
-    for i, stage in enumerate(stages):
-        if stage == current:
-            users += 1
-            continue
+    blocked = [0 for _ in range(N + 1)]     # 각 스테이지 별로 막혀있는 사람 배열
+    failure = [(0, 0) for _ in range(N)]    # 스테이지 번호와 실패율 배열
+    for stage in stages:
+        blocked[stage - 1] += 1
+    for i in range(len(blocked) - 1):
+        users = sum(blocked[i:])
+        failure[i] = (i + 1, (blocked[i] / users) if users != 0 else 0.0)
 
-        # 이전 스테이지에 해당하는 실패율 구하기
-        # 스테이지에 도달했으나 아직 클리어하지 못한 플레이어의 수 / 스테이지에 도달한 플레이어 수
-        result.append((current, users / (len(stages) - i + 1) + users))
-        print(result)
-        # 스테이지 업데이트
-        current = stage
-        # 유저 수 업데이트
-        users = 1
-
-    return list(map(lambda x: x[0], sorted(result, key=lambda x: x[1], reverse=True)))
+    return list(map(lambda x: x[0], sorted(failure, key=lambda x: x[1], reverse=True)))
 
 print(solution(5, [2, 1, 2, 6, 2, 4, 3, 3]))
+print(solution(4, [4,4,4,4,4]))
