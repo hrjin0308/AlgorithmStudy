@@ -27,16 +27,7 @@
 #
 # 20분이 되었을 때, 두 번째 심사대가 비지만 6번째 사람이 그곳에서 심사를 받지 않고 1분을 더 기다린 후에 첫 번째 심사대에서 심사를 받으면 28분에 모든 사람의 심사가 끝납니다.
 
-def binarySearch(array, target, start, end):
-    if start > end:
-        return None
-    mid = (start + end) // 2
-    if array[mid] == target:
-        return mid
-    elif array[mid] > target:
-        return binarySearch(array, target, start, mid - 1)
-    else:
-        return binarySearch(array, target, mid + 1, end)
+# 이진탐색으로 뭘 구해야되는지도 모르것네 세상에
 
 def solution(n, times):
     times.sort()
@@ -44,5 +35,7 @@ def solution(n, times):
     #n이 time의 길이보다 작은경우 예외처리
     if n < count:
         return sorted(times)[n - 1]
+
+
 
     return answer
