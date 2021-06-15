@@ -29,48 +29,37 @@
 n, c = list(map(int, input().split()))
 houses = [int(input()) for _ in range(n)]
 houses.sort()
-start = 0
-end = n - 1
+# 최저 차이, 최대 차이 구하기
+start = houses[1] - houses[0]
+end = houses[-1] - houses[0]
 maxDistance = 0
 
-# houses[posIdx1]~houses[posIdx2]만큼 거리를 최소 거리로 했을 때 C개의 공유기가 다 설치되는지 확인
-def isSetupEnabled(posIdx1, posIdx2):
-    others = houses[posIdx2 + 1:]
-    # 남아있는 집 수가 설치해야 될 공유기의 수보다 적은 경우 return False
-    if len(others) < c - 1:
-        print("남아있는 집 수가 설치해야 될 공유기의 수보다 적은 경우 return False")
-        return False
+print(start, end)
 
-    distance = houses[posIdx2] - houses[posIdx1]
-    lastHouse = houses[posIdx2]
-    count = 0
-    for house in others:
-        print("house", house, "lastHouse", lastHouse)
-        if house - lastHouse <= distance:
-            continue
-        count += 1
-        lastHouse = house
-
-    if count < c - 1:
-        print("카운트가 공유기의 수보다 적은 경우 return False", count)
-        return False
-    else:
-        print("카운트가 공유기의 수보다 큰 경우 return True", count)
-        return True
-
-while start < end:
+while start <= end:
+    print()
     mid = (start + end) // 2
     print(start, end, mid)
-    distance = houses[mid] - houses[0]
-    if isSetupEnabled(start, mid):
-        # 설치된다면 distance값 저장 후 mid + 1을 start로 변경
-        print("isSetupEnabled True", distance)
-        maxDistance = distance
-        start = mid + 1
-    else:
-        print("isSetupEnabled False", distance)
+
+    # 거리 비교를 위해 마지막으로 공유기가 설치된 집 초기화
+    latestHouse = houses[0]
+    # 설치된 공유기 수 초기화
+    count = 1
+    # for문으로 mid와 마지막으로 공유기가 설치된 집과의 거리를 비교하며 공유기 설치 count 변경
+    for house in houses[1:]:
+        print("house", house)
+        print("latestHouse", latestHouse)
+        if house - latestHouse >= mid:
+            latestHouse = house
+            count += 1
+            print("count + 1")
+    print("count", count)
+    if count < c:
         end = mid - 1
+    else:
+        maxDistance = mid
+        print("maxDistance update", maxDistance)
+        start = mid + 1
 
 print(maxDistance)
-
 
