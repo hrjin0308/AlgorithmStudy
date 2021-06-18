@@ -30,12 +30,20 @@
 # 이진탐색으로 뭘 구해야되는지도 모르것네 세상에
 
 def solution(n, times):
-    times.sort()
-    count = len(times)
-    #n이 time의 길이보다 작은경우 예외처리
-    if n < count:
-        return sorted(times)[n - 1]
+    start = 1     # 동시다발적 진행이기 때문에 min(times) * n 이 아닌 1로 넣어준다
+    end = max(times) * n
 
+    time = 0
+    while start <= end:
+        mid = (start + end) // 2
+        # mid시간 안에 각 심사관이 몇명의 사람을 검사할 수 있는지 체크
+        count = sum(map(lambda x: mid // x, times))
+        if count >= n:
+            time = mid
+            end = mid - 1
+        else:
+            start = mid + 1
 
+    return time
 
-    return answer
+print(solution(6, [7, 10]))
