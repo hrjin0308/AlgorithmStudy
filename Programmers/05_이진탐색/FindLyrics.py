@@ -46,20 +46,23 @@ def solution(words, queries):
     reversedWords = list(map(lambda x: x[::-1], words))
 
     def saveCount(array, left, right):
+        print(array, left, right)
         array.append(left)
         array.append(right)
         array.sort()
+        print(array)
+        array = list(filter(lambda x: len(x) == len(left), array))
+        print(array)
         answer.append(bisect_left(array, right) - bisect_right(array, left))
-        array.remove(left)
-        array.remove(right)
 
     for querie in queries:
         left = str(querie.replace('?', 'a'))
         right = str(querie.replace('?', 'z'))
         if querie[0] != '?':
-            saveCount(list(filter(lambda x: len(x) == len(querie), words)), left, right)
+            # saveCount(list(filter(lambda x: len(x) == len(querie), words)), left, right)
+            saveCount(list(words), left, right)
         else:
-            saveCount(list(filter(lambda x: len(x) == len(querie), reversedWords)), left[::-1], right[::-1])
+            saveCount(list(reversedWords), left[::-1], right[::-1])
 
     return answer
 
