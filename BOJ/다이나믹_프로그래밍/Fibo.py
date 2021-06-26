@@ -52,18 +52,23 @@ import sys
 t = int(sys.stdin.readline())
 tcList = [int(sys.stdin.readline()) for _ in range(t)]
 
+d = [0] * 41
+
 def fibo(n):
-    global d
     if n == 0:
         return 0
     elif n == 1:
         return 1
     else:
-        global d
-        if d[n - 1] == 0:
-            d[n - 1] = fibo(n - 1) + fibo(n - 2)
-        return d[n - 1]
+        if d[n] == 0:
+            d[n] = fibo(n - 1) + fibo(n - 2)
+        return d[n]
 
 for n in tcList:
-    d = [0] * 41
-    print(fibo(n), fibo(n + 1))
+    # 이래도되냨ㅋㅋㅋ
+    if n == 0:
+        print("1 0")
+    elif n == 1:
+        print("0 1")
+    else:
+        print(fibo(n - 1), fibo(n))
