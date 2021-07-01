@@ -33,15 +33,12 @@ list = [list(map(int, input().split())) for _ in range(n)]
 
 d = [0] * (n + 1)    # 날짜별로 얻을 수 있는 최대 이익
 
-for i in range(n - 2, -1, -1):
+for i in range(n - 1, -1, -1):
     t, p = list[i]
-    print(t, p)
-
     if t + i > n:   # 현재 날짜와 상담 날짜를 더했을 때 퇴사날짜보다 이후인 경우
         d[i] = d[i + 1]
     else:
-        d[i] = max()        # 여기 들어가는걸 모르것네....
-
+        d[i] = max(p + d[i + t], d[i + 1])        # i일에 상담을 하는것과 안하는 것 비교
     print(d)
 
 print(max(d))
