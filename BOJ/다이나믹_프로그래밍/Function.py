@@ -42,33 +42,26 @@
 # w(50, 50, 50) = 1048576
 # w(-1, 7, 18) = 1
 
-# dictionary로 해야되나?
-d = [[[0] * 21] * 21] * 21
-d[0][0][0] = 1
+# 위의 식으로 하면 refer복사처럼 된다... 파이썬은 이게 어려움
+# 아래의 식으로 해야 값을 변화시킬때 서로 영향이 가지 않아서 제대로 된 값을 얻을 수 있다.
+# d = [[[0] * 21] * 21] * 21
+d = [[[0]*21 for _ in range(21)] for __ in range(21)]
 
 def w(a, b, c):
     if a <= 0 or b <= 0 or c <= 0:
         return 1
     if a > 20 or b > 20 or c > 20:
         return w(20, 20, 20)
-    if a < b and b < c:
-        if d[a][b][c - 1] == 0:
-            d[a][b][c - 1] = w(a, b, c - 1)
-        if d[a][b - 1][c - 1] == 0:
-            d[a][b - 1][c - 1] = w(a, b - 1, c - 1)
-        if d[a][b - 1][c] == 0:
-            d[a][b - 1][c] = w(a, b - 1, c)
-        return d[a][b][c - 1] + d[a][b - 1][c - 1] - d[a][b - 1][c]
-    else:
-        if d[a - 1][b][c] == 0:
-            d[a - 1][b][c] = w(a - 1, b, c)
-        if d[a - 1][b - 1][c] == 0:
-            d[a - 1][b - 1][c] = w(a - 1, b - 1, c)
-        if d[a - 1][b][c - 1] == 0:
-            d[a - 1][b][c - 1] = w(a - 1, b, c - 1)
-        if d[a - 1][b - 1][c - 1] == 0:
-            d[a - 1][b - 1][c - 1] = w(a - 1, b - 1, c - 1)
-        return d[a - 1][b][c] + d[a - 1][b - 1][c] + d[a - 1][b][c - 1] - d[a - 1][b - 1][c - 1]
+
+    if d[a][b][c] != 0:
+        return d[a][b][c]
+
+    if a < b < c:
+        d[a][b][c] = w(a, b, c - 1) + w(a, b - 1, c - 1) - w(a, b - 1, c)
+        return d[a][b][c]
+
+    d[a][b][c] = w(a - 1, b, c) + w(a - 1, b - 1, c) + w(a - 1, b, c - 1) - w(a - 1, b - 1, c - 1)
+    return d[a][b][c]
 
 array = []
 
@@ -82,4 +75,3 @@ while True:
 
 for a, b, c in array:
     print(f"w({a}, {b}, {c}) = {w(a, b, c)}")
-
