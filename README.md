@@ -1,2 +1,3 @@
-# PythonStudy
-[Private] Python Study용 Repo
+# Algorithm Study
+
+내용 정리중...
