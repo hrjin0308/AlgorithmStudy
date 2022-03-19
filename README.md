@@ -4,6 +4,7 @@
 2021.04.23 ~ 2021.08.23 (Python)
 
 ## 참여자
+* [HRJin](https://github.com/hrjin0308)
 * [Jihun Cha](https://github.com/jihuncha)
 * [KwonSinae](https://github.com/kwonsinae)
 * [Junsuu](https://github.com/Junsuu)
