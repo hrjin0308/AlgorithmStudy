@@ -7,8 +7,16 @@ import UIKit
 //"JEROEN"  56
 //"JAN"  23
 //"JAZZ"   13
-JoyStick.solution("JEROEN")
-JoyStick.solution("JAN")
-JoyStick.solution("JAZZ")
-JoyStick.solution("BBBAAAB")
-JoyStick.solution("ABABAAAAABA")
+//JoyStick.solution("JEROEN")
+//JoyStick.solution("JAN")
+//JoyStick.solution("JAZZ")
+//JoyStick.solution("BBBAAAB")
+//JoyStick.solution("ABABAAAAABA")
+
+//"1924"  2  "94"
+//"1231234"  3  "3234"
+//"4177252841"  4  "775841"
+
+Bigger.solution("1924", 2)
+Bigger.solution("1231234", 3)
+Bigger.solution("4177252841", 4)
