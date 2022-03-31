@@ -1,7 +1,8 @@
 # Algorithm Study
 
 ## 스터디 기간
-2021.04.23 ~ 2021.08.23 (Python)
+2021.04.23 ~ 2021.08.23 (Python)   
+2022.02 ~ (Swift)
 
 ## 참여자
 * [HRJin](https://github.com/hrjin0308)
@@ -45,9 +46,9 @@
 
 문제|언어별 풀이
 |---|---|
-체육복|[Python](https://github.com/hrjin0308/AlgorithmStudy/blob/master/Programmers/01_Greedy/Uniform.py), [Swift](https://github.com/hrjin0308/AlgorithmStudy/blob/master/Programmers/01_Greedy/Uniform.playground/Contents.swift)
-조이스틱|[Python](https://github.com/hrjin0308/AlgorithmStudy/blob/master/Programmers/01_Greedy/Joystick.py)
-큰 수 만들기|[Python](https://github.com/hrjin0308/AlgorithmStudy/blob/master/Programmers/01_Greedy/Bigger.py)
+체육복|[Python](https://github.com/hrjin0308/AlgorithmStudy/blob/master/Programmers/01_Greedy/Uniform.py), [Swift](https://github.com/hrjin0308/AlgorithmStudy/blob/master/Programmers/01_Greedy/Greedy.playground/Sources/Uniform.swift)
+조이스틱|[Python](https://github.com/hrjin0308/AlgorithmStudy/blob/master/Programmers/01_Greedy/Joystick.py), [Swift](https://github.com/hrjin0308/AlgorithmStudy/blob/master/Programmers/01_Greedy/Greedy.playground/Sources/JoyStick.swift)
+큰 수 만들기|[Python](https://github.com/hrjin0308/AlgorithmStudy/blob/master/Programmers/01_Greedy/Bigger.py), [Swift](https://github.com/hrjin0308/AlgorithmStudy/blob/master/Programmers/01_Greedy/Greedy.playground/Sources/Bigger.swift)
 구명 보트|[Python](https://github.com/hrjin0308/AlgorithmStudy/blob/master/Programmers/01_Greedy/RescueBoat.py)
 
 ---
@@ -71,7 +72,7 @@ BFS 기본|[Python](https://github.com/hrjin0308/AlgorithmStudy/blob/master/이�
 문제|언어별 풀이
 |---|---|
 네트워크|[Python](https://github.com/hrjin0308/AlgorithmStudy/blob/master/Programmers/03_2%20DFS_BFS/Network.py)
-타겟 넘버|[Python](https://github.com/hrjin0308/AlgorithmStudy/blob/master/Programmers/03_2%20DFS_BFS/TargetNumber.py)
+타겟 넘버|[Python](https://github.com/hrjin0308/AlgorithmStudy/blob/master/Programmers/03_2%20DFS_BFS/TargetNumber.py), [Swift](https://github.com/hrjin0308/AlgorithmStudy/blob/master/Programmers/03_2%20DFS_BFS/DFS_BFS.playground/Sources/TargetNumber.swift)
 
 ---
 
