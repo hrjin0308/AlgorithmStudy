@@ -1,3 +1,10 @@
+//
+//  main.swift
+//  BInarySearch
+//
+//  Created by 진혜림 on 2022/04/12.
+//
+
 import Foundation
 
 // recursive
@@ -46,8 +53,8 @@ func binarySearchWhile(array: [Int], target: Int) -> Int {
   return -1
 }
 
-let array = [1, 3, 5, 7, 9, 11, 13, 15, 17, 19]
-binarySearchRecrsive(array: array, target: 7, start: 0, end: array.count - 1)
-binarySearchWhile(array: array, target: 7)
+let array = [1, 3, 5, 7, 7, 9, 11, 13, 15, 17, 19]
+//binarySearchRecrsive(array: array, target: 7, start: 0, end: array.count - 1)
+//binarySearchWhile(array: array, target: 7)
 
-
+Tteokbokki.solution()
