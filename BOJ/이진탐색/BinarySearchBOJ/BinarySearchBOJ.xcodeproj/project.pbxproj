@@ -10,6 +10,7 @@
 		3EAEA2CC2805C10300A533FB /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EAEA2CB2805C10300A533FB /* main.swift */; };
 		3EAEA2D32805C82900A533FB /* FindNumber.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EAEA2D22805C82900A533FB /* FindNumber.swift */; };
 		3EAEA2D5280703E900A533FB /* FindCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EAEA2D4280703E900A533FB /* FindCard.swift */; };
+		3EAEA2D7280711B200A533FB /* CuttingLanLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EAEA2D6280711B200A533FB /* CuttingLanLine.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -29,6 +30,7 @@
 		3EAEA2CB2805C10300A533FB /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		3EAEA2D22805C82900A533FB /* FindNumber.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindNumber.swift; sourceTree = "<group>"; };
 		3EAEA2D4280703E900A533FB /* FindCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindCard.swift; sourceTree = "<group>"; };
+		3EAEA2D6280711B200A533FB /* CuttingLanLine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CuttingLanLine.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +66,7 @@
 				3EAEA2CB2805C10300A533FB /* main.swift */,
 				3EAEA2D22805C82900A533FB /* FindNumber.swift */,
 				3EAEA2D4280703E900A533FB /* FindCard.swift */,
+				3EAEA2D6280711B200A533FB /* CuttingLanLine.swift */,
 			);
 			path = BinarySearchBOJ;
 			sourceTree = "<group>";
@@ -126,6 +129,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3EAEA2D7280711B200A533FB /* CuttingLanLine.swift in Sources */,
 				3EAEA2CC2805C10300A533FB /* main.swift in Sources */,
 				3EAEA2D32805C82900A533FB /* FindNumber.swift in Sources */,
 				3EAEA2D5280703E900A533FB /* FindCard.swift in Sources */,
