@@ -7,7 +7,7 @@
 
 import Foundation
 
-func CuttingTrees {
+class CuttingTrees {
   func solution() {
     let input = readLine()!.split(separator: " ").map { Int(String($0))! }
     let trees = readLine()!.split(separator: " ").map { Int(String($0))! }
