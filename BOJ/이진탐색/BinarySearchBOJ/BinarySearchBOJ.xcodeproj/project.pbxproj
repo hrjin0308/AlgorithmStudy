@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		3EAEA2CC2805C10300A533FB /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EAEA2CB2805C10300A533FB /* main.swift */; };
 		3EAEA2D32805C82900A533FB /* FindNumber.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EAEA2D22805C82900A533FB /* FindNumber.swift */; };
+		3EAEA2D5280703E900A533FB /* FindCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EAEA2D4280703E900A533FB /* FindCard.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -27,6 +28,7 @@
 		3EAEA2C82805C10300A533FB /* BinarySearchBOJ */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = BinarySearchBOJ; sourceTree = BUILT_PRODUCTS_DIR; };
 		3EAEA2CB2805C10300A533FB /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		3EAEA2D22805C82900A533FB /* FindNumber.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindNumber.swift; sourceTree = "<group>"; };
+		3EAEA2D4280703E900A533FB /* FindCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindCard.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +63,7 @@
 			children = (
 				3EAEA2CB2805C10300A533FB /* main.swift */,
 				3EAEA2D22805C82900A533FB /* FindNumber.swift */,
+				3EAEA2D4280703E900A533FB /* FindCard.swift */,
 			);
 			path = BinarySearchBOJ;
 			sourceTree = "<group>";
@@ -125,6 +128,7 @@
 			files = (
 				3EAEA2CC2805C10300A533FB /* main.swift in Sources */,
 				3EAEA2D32805C82900A533FB /* FindNumber.swift in Sources */,
+				3EAEA2D5280703E900A533FB /* FindCard.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
