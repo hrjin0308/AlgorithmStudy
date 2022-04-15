@@ -5,10 +5,14 @@
 2022.02 ~ (Swift)
 
 ## 참여자
+#### Python
 * [HRJin](https://github.com/hrjin0308)
 * [Jihun Cha](https://github.com/jihuncha)
 * [KwonSinae](https://github.com/kwonsinae)
 * [Junsuu](https://github.com/Junsuu)
+
+#### Swift
+* [HRJin](https://github.com/hrjin0308)
 
 ## 목차
 1. [그리디&구현](#1-그리디구현)
@@ -108,20 +112,20 @@ K번째 수 찾기|[Python](https://github.com/hrjin0308/AlgorithmStudy/blob/mas
 
 문제|언어별 풀이
 |---|---|
-이진탐색(재귀)|[Python](https://github.com/hrjin0308/AlgorithmStudy/blob/master/이코테2021/05_이진탐색/BinarySearch_Recursive.ipynb)
-이진탐색(while)|[Python](https://github.com/hrjin0308/AlgorithmStudy/blob/master/이코테2021/05_이진탐색/BinarySearch_While.ipynb)
-떡볶이 떡 만들기|[Python](https://github.com/hrjin0308/AlgorithmStudy/blob/master/이코테2021/05_이진탐색/Tteokbokki.ipynb)
+이진탐색(재귀)|[Python](https://github.com/hrjin0308/AlgorithmStudy/blob/master/이코테2021/05_이진탐색/BinarySearch_Recursive.ipynb), [Swift](https://github.com/hrjin0308/AlgorithmStudy/blob/master/%EC%9D%B4%EC%BD%94%ED%85%8C2021/05_%EC%9D%B4%EC%A7%84%ED%83%90%EC%83%89/BInarySearch/BInarySearch/main.swift)
+이진탐색(while)|[Python](https://github.com/hrjin0308/AlgorithmStudy/blob/master/이코테2021/05_이진탐색/BinarySearch_While.ipynb), [Swift](https://github.com/hrjin0308/AlgorithmStudy/blob/master/%EC%9D%B4%EC%BD%94%ED%85%8C2021/05_%EC%9D%B4%EC%A7%84%ED%83%90%EC%83%89/BInarySearch/BInarySearch/main.swift)
+떡볶이 떡 만들기|[Python](https://github.com/hrjin0308/AlgorithmStudy/blob/master/이코테2021/05_이진탐색/Tteokbokki.ipynb), [Swift](https://github.com/hrjin0308/AlgorithmStudy/blob/master/%EC%9D%B4%EC%BD%94%ED%85%8C2021/05_%EC%9D%B4%EC%A7%84%ED%83%90%EC%83%89/BInarySearch/BInarySearch/Tteokbokki.swift)
 정렬된 배열에서 특정 수의 갯수 구하기|[Python](https://github.com/hrjin0308/AlgorithmStudy/blob/master/이코테2021/05_이진탐색/TheNumberCount.ipynb)
 
 * 백준
 
 문제|언어별 풀이
 |---|---|
-수찾기|[Python](https://github.com/hrjin0308/AlgorithmStudy/blob/master/BOJ/이진탐색/FindNumber.py)
-랜선 자르기|[Python](https://github.com/hrjin0308/AlgorithmStudy/blob/master/BOJ/이진탐색/LanLineCount.py)
-숫자 카드|[Python](https://github.com/hrjin0308/AlgorithmStudy/blob/master/BOJ/이진탐색/NumberCard.py)
-공유기|[Python](https://github.com/hrjin0308/AlgorithmStudy/blob/master/BOJ/이진탐색/Route.py)
-나무 자르기|[Python](https://github.com/hrjin0308/AlgorithmStudy/blob/master/BOJ/이진탐색/WoodCutter.py)
+수찾기|[Python](https://github.com/hrjin0308/AlgorithmStudy/blob/master/BOJ/이진탐색/FindNumber.py), [Swift](https://github.com/hrjin0308/AlgorithmStudy/blob/master/BOJ/%EC%9D%B4%EC%A7%84%ED%83%90%EC%83%89/BinarySearchBOJ/BinarySearchBOJ/FindNumber.swift)
+랜선 자르기|[Python](https://github.com/hrjin0308/AlgorithmStudy/blob/master/BOJ/이진탐색/LanLineCount.py), [Swift](https://github.com/hrjin0308/AlgorithmStudy/blob/master/BOJ/%EC%9D%B4%EC%A7%84%ED%83%90%EC%83%89/BinarySearchBOJ/BinarySearchBOJ/CuttingLanLine.swift)
+숫자 카드|[Python](https://github.com/hrjin0308/AlgorithmStudy/blob/master/BOJ/이진탐색/NumberCard.py), [Swift](https://github.com/hrjin0308/AlgorithmStudy/blob/master/BOJ/%EC%9D%B4%EC%A7%84%ED%83%90%EC%83%89/BinarySearchBOJ/BinarySearchBOJ/FindCard.swift)
+공유기|[Python](https://github.com/hrjin0308/AlgorithmStudy/blob/master/BOJ/이진탐색/Route.py), [Swift](https://github.com/hrjin0308/AlgorithmStudy/blob/master/BOJ/%EC%9D%B4%EC%A7%84%ED%83%90%EC%83%89/BinarySearchBOJ/BinarySearchBOJ/Router.swift)
+나무 자르기|[Python](https://github.com/hrjin0308/AlgorithmStudy/blob/master/BOJ/이진탐색/WoodCutter.py), [Swift](https://github.com/hrjin0308/AlgorithmStudy/blob/master/BOJ/%EC%9D%B4%EC%A7%84%ED%83%90%EC%83%89/BinarySearchBOJ/BinarySearchBOJ/CuttingTrees.swift)
 
 * 프로그래머스
 
