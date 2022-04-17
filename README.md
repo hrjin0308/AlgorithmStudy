@@ -132,8 +132,9 @@ K번째 수 찾기|[Python](https://github.com/hrjin0308/AlgorithmStudy/blob/mas
 문제|언어별 풀이
 |---|---|
 가사 찾기|[Python](https://github.com/hrjin0308/AlgorithmStudy/blob/master/Programmers/05_이진탐색/FindLyrics.py)
-입국 심사|[Python](https://github.com/hrjin0308/AlgorithmStudy/blob/master/Programmers/05_이진탐색/PapersPlease.py)
-징검 다리|[Python](https://github.com/hrjin0308/AlgorithmStudy/blob/master/Programmers/05_이진탐색/SteppingStone.py)
+입국 심사|[Python](https://github.com/hrjin0308/AlgorithmStudy/blob/master/Programmers/05_이진탐색/PapersPlease.py), [Swift](https://github.com/hrjin0308/AlgorithmStudy/blob/master/Programmers/05_%EC%9D%B4%EC%A7%84%ED%83%90%EC%83%89/BinarySearchProgrammers/BinarySearchProgrammers/PaperPlease.swift)
+징검 다리|[Python](https://github.com/hrjin0308/AlgorithmStudy/blob/master/Programmers/05_이진탐색/SteppingStone.py), [Swift](https://github.com/hrjin0308/AlgorithmStudy/blob/master/Programmers/05_%EC%9D%B4%EC%A7%84%ED%83%90%EC%83%89/BinarySearchProgrammers/BinarySearchProgrammers/SteppingStone.swift)
+
 
 
 ---
@@ -165,7 +166,7 @@ K번째 수 찾기|[Python](https://github.com/hrjin0308/AlgorithmStudy/blob/mas
 문제|언어별 풀이
 |---|---|
 정수 삼각형|[Python](https://github.com/hrjin0308/AlgorithmStudy/blob/master/Programmers/06_다이나믹_프로그래밍/IntegerTriangle.py)
-N으로 표현|[Python](https://github.com/hrjin0308/AlgorithmStudy/blob/master/Programmers/06_다이나믹_프로그래밍/N.py)
+N으로 표현|[Python](https://github.com/hrjin0308/AlgorithmStudy/blob/master/Programmers/06_다이나믹_프로그래밍/N.py), [Swift](https://github.com/hrjin0308/AlgorithmStudy/blob/master/Programmers/06_%EB%8B%A4%EC%9D%B4%EB%82%98%EB%AF%B9_%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/DynamicProgramming/DynamicProgramming/N.swift)
 
 ---
 
